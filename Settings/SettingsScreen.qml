@@ -40,6 +40,10 @@ id: root
             setting: "No,Yes"
         }
         ListElement {
+            settingName: "Increase thumbnail logo contrast"
+            setting: "No,Yes"
+        }
+        ListElement {
             settingName: "Animate highlight"
             setting: "No,Yes"
         }

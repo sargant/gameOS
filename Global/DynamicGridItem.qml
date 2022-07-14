@@ -100,6 +100,14 @@ id: root
             Behavior on opacity { NumberAnimation { duration: 200 } }
         }
 
+        Rectangle {
+        id: dimmer
+            anchors.fill: parent
+            color: theme.main
+            opacity: selected || settings.IncreaseThumbContrast === "No" ?  0 : 0.5
+            Behavior on opacity { NumberAnimation { duration: 200 } }
+        }
+
         Image {
         id: favelogo
 
@@ -114,7 +122,20 @@ id: root
             smooth: true
             scale: selected ? 1.1 : 1
             Behavior on scale { NumberAnimation { duration: 100 } }
+            visible: settings.IncreaseThumbContrast === "No"
             z: 10
+        }
+
+        Glow {
+            id: favelogoGlow
+                
+                anchors.fill: favelogo
+                radius: 5
+                samples: 11
+                spread: 0.5
+                color: theme.text
+                source: favelogo
+                visible: settings.IncreaseThumbContrast === "Yes"
         }
 
         Rectangle {
